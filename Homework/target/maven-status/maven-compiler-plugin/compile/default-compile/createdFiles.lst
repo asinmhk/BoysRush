@@ -3,6 +3,7 @@ BeginExecutor.class
 STATE.class
 Painter.class
 SiWa.class
+MyFileFilter.class
 EmbattleSort.class
 Scene.class
 MonsterExecutor.class

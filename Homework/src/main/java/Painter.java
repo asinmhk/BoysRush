@@ -130,13 +130,13 @@ public class Painter extends JPanel {
         if (MonsterExecutor.finish) {
             loc = this.getClass().getClassLoader().getResource("images/text3.png");
             iia = new ImageIcon(loc);
-            iia.setImage(iia.getImage().getScaledInstance(650, 80, Image.SCALE_DEFAULT));
-            g.drawImage(iia.getImage(), 230, 630, this);
+            iia.setImage(iia.getImage().getScaledInstance(650, 45, Image.SCALE_DEFAULT));
+            g.drawImage(iia.getImage(), 230, 650, this);
         } else {
             loc = this.getClass().getClassLoader().getResource("images/text2.png");
             iia = new ImageIcon(loc);
-            iia.setImage(iia.getImage().getScaledInstance(650, 80, Image.SCALE_DEFAULT));
-            g.drawImage(iia.getImage(), 230, 630, this);
+            iia.setImage(iia.getImage().getScaledInstance(650, 45, Image.SCALE_DEFAULT));
+            g.drawImage(iia.getImage(), 230, 650, this);
         }
     }
 
@@ -146,7 +146,7 @@ public class Painter extends JPanel {
             System.out.println("end");
             if (type == TYPE.Game) {
                 try {
-                    Recorder.record(System.getProperty("user.dir") + "\\classes\\log.txt");
+                    Recorder.record();
                 } catch (Exception e) {
                     System.out.print("Record error");
                 }
@@ -204,7 +204,7 @@ public class Painter extends JPanel {
                                 System.out.println("end");
                                 if (type == TYPE.Game) {
                                     try {
-                                        Recorder.record(System.getProperty("user.dir") + "\\classes\\log.txt");
+                                        Recorder.record();
                                     } catch (Exception e) {
                                         System.out.print("Record error");
                                     }

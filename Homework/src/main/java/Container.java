@@ -63,51 +63,27 @@ class TAdapter extends KeyAdapter {
                 scene.gameInit();
                 scene.addPainter(painter);
                 scene.gameStart();
-
-                String pathName = System.getProperty("user.dir") + "\\classes\\log.txt";
-                File f = new File(pathName);
-                try {
-                    long time = System.currentTimeMillis();
-                    byte[] bTime = new byte[8];
-                    for (int i = 0; i < 8; ++i) {
-                        int offset = 64 - (i + 1) * 8;
-                        bTime[i] = (byte) ((time >> offset) & 0xff);
-                    }
-                    OutputStream out = new FileOutputStream(f);
-                    out.write(bTime);
-                    out.close();
-                } catch (Exception ee) {
-                }
-
+                Recorder.setStartTime(System.currentTimeMillis());
                 painter.setMap(scene.getMap());
                 painter.game();
             }
 
         } else if (key == KeyEvent.VK_L) {
             if (painter.getType() == TYPE.Begin || painter.getType() == TYPE.End) {
-                scene.gameInit();
-                scene.addPainter(painter);
-                String pathName = System.getProperty("user.dir") + "\\classes\\log.txt";
-//                File file = new File(pathName);
-//                if (!file.exists()) {
-//                    file = new File(System.getProperty("user.dir"));
-//                    String strParentDirectory = file.getParent();
-//                    System.out.println(strParentDirectory);
-//                }
-
-
-                scene.loadInit(pathName);
-                painter.setMap(scene.getMap());
-                painter.load();
-            }
-        } else if (key == KeyEvent.VK_R) {
-            if (painter.getType() == TYPE.Begin || painter.getType() == TYPE.End) {
-                scene.gameInit();
-                scene.addPainter(painter);
-                String pathName = System.getProperty("user.dir") + "\\classes\\example.txt";
-                scene.loadInit(pathName);
-                painter.setMap(scene.getMap());
-                painter.load();
+                JFileChooser jfc=new JFileChooser(System.getProperty("user.dir"));
+                jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES );
+                jfc.showDialog(new JLabel(), "选择");
+                jfc.setFileFilter(new MyFileFilter());
+                File file=jfc.getSelectedFile();
+                if (file.exists() && !file.isDirectory()) {
+                    String pathName = file.getPath();
+                    scene.gameInit();
+                    scene.addPainter(painter);
+                    //String pathName = System.getProperty("user.dir") + "\\classes\\log.txt";
+                    scene.loadInit(pathName);
+                    painter.setMap(scene.getMap());
+                    painter.load();
+                }
             }
         }
 
