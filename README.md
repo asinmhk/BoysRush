@@ -11,7 +11,7 @@
 * **Maven**：可执行**Jar**包 ``target\Homework-1.0-SNAPSHOT.jar`` 。
 
 # 游戏截图
-![Image text](https://github.com/asinmhk/java-2017f-homework/blob/master/Fianl%20Project/%E8%A9%B9%E5%B0%8F%E9%9B%A8_151220157/screen1.jpg)![Image text](https://github.com/asinmhk/java-2017f-homework/blob/master/Fianl%20Project/%E8%A9%B9%E5%B0%8F%E9%9B%A8_151220157/screen2.jpg)
+![Image text](https://github.com/asinmhk/BoysRush/blob/master/screen1.jpg)![Image text](https://github.com/asinmhk/BoysRush/blob/master/screen2.jpg)
 
 # 具体实现
 
